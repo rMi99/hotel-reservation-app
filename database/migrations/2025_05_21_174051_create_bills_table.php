@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
     $table->id();
-    $table->foreignId('reservation_id')->constrained('reservations')->onDelete('cascade');
+    $table->unsignedBigInteger('reservation_id')->constrained('reservations')->onDelete('cascade');
     $table->double('room_charges');
     $table->double('extra_charges')->nullable();
     $table->double('discount')->nullable();

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('reservation_rooms', function (Blueprint $table) {
     $table->id();
-    $table->foreignId('reservation_id')->constrained('reservations')->onDelete('cascade');
-    $table->foreignId('room_id')->constrained('rooms')->onDelete('cascade');
+    $table->unsignedBigInteger('reservation_id')->constrained('reservations')->onDelete('cascade');
+    $table->unsignedBigInteger('room_id')->constrained('rooms')->onDelete('cascade');
     $table->timestamps();
         });
     }
