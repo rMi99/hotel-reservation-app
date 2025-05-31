@@ -42,8 +42,13 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 Widgets\AccountWidget::class,
             ])
-            ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
-            ->plugin(FilamentUsersPlugin::make())
+            ->resources([
+                config('filament-logger.activity_resource')
+            ])
+            ->plugins([
+                FilamentUsersPlugin::make(),
+                FilamentSpatieRolesPermissionsPlugin::make()
+            ])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
