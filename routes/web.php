@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
+use App\Http\Controllers\HotelController;
 
 Auth::routes();
 
@@ -25,3 +26,6 @@ Volt::route('/contact', 'customer.contact')->name('contact');
 // Route::middleware(['auth', 'role:travel-company'])->group(function () {
 //     Volt::route('/travel/dashboard', 'travel.dashboard')->name('travel.dashboard');
 // });
+
+Route::apiResource('api/hotels', HotelController::class);
+
